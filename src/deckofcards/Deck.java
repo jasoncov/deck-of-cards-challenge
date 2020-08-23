@@ -17,11 +17,6 @@ public class Deck {
     private ArrayList<Card> deck = new ArrayList<Card>();
 
     /**
-     * A list of card objects that becomes populated by the drawOneCard method.
-     */
-    private ArrayList<Card> dealtCards = new ArrayList<Card>();
-
-    /**
      * Constructor
      * Creates a standard 52 playing card deck.
      */
@@ -39,7 +34,7 @@ public class Deck {
     }
 
     /**
-     * Utilizes the Fisher–Yates algorithm to swap a Card object at a random index in the Deck.
+     * Utilizes the Fisher–Yates algorithm to swap a card object at a random index in the deck.
      */
     public void shuffle() {
         // The number of cards in the deck
@@ -68,12 +63,24 @@ public class Deck {
         if(this.deck.size() == 0) {
             return null;
         }
-        // Remove the card at the first index
-        Card dealtCard = this.deck.remove(0);
-        // Add the removed card to the dealtCard list
-        this.dealtCards.add(dealtCard);
-        System.out.println(dealtCard + " Dealt");
         // Return the drawn card
-        return dealtCard;
+        return this.deck.remove(0);
+    }
+
+    /**
+     * Returns a string representation of a list of cards in a deck; including suit and face value of each card.
+     * @return string representation of a deck.
+     */
+    public String toString() {
+        String deckString = "";
+        for (int i = 0; i < this.deck.size(); i++) {
+            // if the current card is the last card in the deck print the card, else add a comma and space after the card
+            if (i == this.deck.size() - 1) {
+                deckString += this.deck.get(i);
+            } else {
+                deckString += this.deck.get(i) + ", ";
+            }
+        }
+        return deckString;
     }
 }

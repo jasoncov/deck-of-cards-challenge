@@ -4,21 +4,20 @@ package deckofcards;
  * Card model object
  * @author Jason Covert
  * @version 1.0
- *
  */
 
 public class Card {
     /**
      * Available suits for a standard playing card.
      */
-    enum Suits {
+    public enum Suits {
         Clubs, Diamonds, Hearts, Spades
     }
 
     /**
      * Available face values for a standard playing card.
      */
-    enum FaceValues {
+    public enum FaceValues {
         Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King
     }
 
